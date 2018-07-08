@@ -1,1 +1,1 @@
-Mobilw webApp development using jQuery, JQM and AJAX.
+Mobile webApp development using jQuery, JQM and AJAX.
