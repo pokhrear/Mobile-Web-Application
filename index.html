@@ -1,0 +1,371 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>jQuery Mobile: Theme Download</title>
+
+	<link rel="stylesheet" href="themes/assignment-theme.min.css" />
+	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+
+	<script>
+
+	$(document).ready(function() {
+
+		$.ajax({
+			type: "GET",
+			url: "book_assignment_two.xml",
+			dataType: "xml",
+					async: true,
+			success:parseXML,
+					error: function (XMLHttpRequest, textStatus, errorThrown) {
+											alert(textStatus + ": " + errorThrown);
+									}
+		});
+
+
+	});
+
+	function parseXML(xml)
+	{
+		$(xml).find("title").each(function()
+		{
+			$("#head").append($(this).attr("site"));
+			$("#foot").append($(this).find("studentName").text()+"  	|  		");
+			$("#foot").append($(this).find("studentName").attr("id")+"		|		");
+			$("#foot").append($(this).find("studentName").attr("prog"));
+
+
+			//$("#head1").append($(this).attr("site"));
+			$("#foot1").append($(this).find("studentName").text()+"  	|  		");
+			$("#foot1").append($(this).find("studentName").attr("id")+"		|		");
+			$("#foot1").append($(this).find("studentName").attr("prog"));
+
+
+			//$("#head2").append($(this).attr("site"));
+			$("#foot2").append($(this).find("studentName").text()+"  	|  		");
+			$("#foot2").append($(this).find("studentName").attr("id")+"		|		");
+			$("#foot2").append($(this).find("studentName").attr("prog"));
+
+
+			//$("#head3").append($(this).attr("site"));
+			$("#foot3").append($(this).find("studentName").text()+"  	|  		");
+			$("#foot3").append($(this).find("studentName").attr("id")+"		|		");
+			$("#foot3").append($(this).find("studentName").attr("prog"));
+
+
+			//$("#head4").append($(this).attr("site"));
+			$("#foot4").append($(this).find("studentName").text()+"  	|  		");
+			$("#foot4").append($(this).find("studentName").attr("id")+"		|		");
+			$("#foot4").append($(this).find("studentName").attr("prog"));
+
+
+			$(this).find("book1").each(function(){
+				$("#head1").append($(this).find("bookname").text()+"		|		");
+				$("#head1").append($(this).find("bookname").attr("isbn"));
+
+			});
+
+			$(this).find("book2").each(function(){
+				$("#head2").append($(this).find("bookname").text()+"		|		");
+				$("#head2").append($(this).find("bookname").attr("isbn"));
+
+			});
+
+			$(this).find("book3").each(function(){
+				$("#head3").append($(this).find("bookname").text()+"		|		");
+				$("#head3").append($(this).find("bookname").attr("isbn"));
+
+			});
+
+			$(this).find("book4").each(function(){
+				$("#head4").append($(this).find("bookname").text()+"		|		");
+				$("#head4").append($(this).find("bookname").attr("isbn"));
+
+			});
+
+
+			/* this is for page one*/
+			$(this).find("book1").each(function(){
+				//$("#details11").append($(this).find("bookname").text()+"<br>");
+				//$("#details11").append($(this).find("bookname").attr("isbn")+"<br>");
+				$("#details11").append($(this).find("description").attr("type")+"<br>");
+				$("#details11").append($(this).find("author").text()+"<br>");
+				$("#details11").append($(this).find("publisher").text()+"<br>");
+				$("#details11").append($(this).find("price").text());
+
+			});
+
+
+			/* this is for page two*/
+
+			$(this).find("book2").each(function(){
+				//$("#details22").append($(this).find("bookname").text()+"<br>");
+				//$("#details22").append($(this).find("bookname").attr("isbn")+"<br>");
+				$("#details22").append($(this).find("description").attr("type")+"<br>");
+				$("#details22").append($(this).find("author").text()+"<br>");
+				$("#details22").append($(this).find("publisher").text()+"<br>");
+				$("#details22").append($(this).find("price").text());
+
+			});
+
+			/* this is for page three*/
+
+
+			$(this).find("book3").each(function(){
+				//$("#details33").append($(this).find("bookname").text()+"<br>");
+				//$("#details33").append($(this).find("bookname").attr("isbn")+"<br>");
+				$("#details33").append($(this).find("description").attr("type")+"<br>");
+				$("#details33").append($(this).find("author").text()+"<br>");
+				$("#details33").append($(this).find("publisher").text()+"<br>");
+				$("#details33").append($(this).find("price").text());
+
+			});
+
+			/* this is for page four*/
+
+
+			$(this).find("book4").each(function(){
+				//$("#details44").append($(this).find("bookname").text()+"<br>");
+				//$("#details44").append($(this).find("bookname").attr("isbn")+"<br>");
+				$("#details44").append($(this).find("description").attr("type")+"<br>");
+				$("#details44").append($(this).find("author").text()+"<br>");
+				$("#details44").append($(this).find("publisher").text()+"<br>");
+				$("#details44").append($(this).find("price").text());
+
+			});
+
+			});
+
+	};
+
+
+	</script>
+
+
+	<div data-role="page" data-theme="a">
+		<div data-role="header" data-position="inline">
+			<h1 id="head"></h1>
+
+			<div data-role="navbar">
+			<ul>
+				<li><a href="tryit.asp-filename=tryjqmob_header.html#" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a></li>
+				<li><a href="#page1">Book One</a></li>
+				<li><a href="#page2">Book Two</a></li>
+				<li><a href="#page3">Book Three</a></li>
+				<li><a href="#page4">Book Four</a></li>
+			</ul>
+		</div>
+
+		</div>
+		<div data-role="content" data-theme="a">
+			<!-- <p>Your theme was successfully downloaded. You can use this page as a reference for how to link it up!</p>-->
+
+			<p style="text-align:center"><strong>Link for Individual Book </strong><br>
+				<a href="#page1" class="ui-link" data-transition="flip">PHP Development</a><br>
+				<a href="#page2" class="ui-link" data-transition="slideup">Java Android</a><br>
+				<a href="#page3" class="ui-link" data-transition="turn">Linux/Unix</a><br>
+				<a href="#page4" class="ui-link" data-transition="flow">Database Design</a>
+			</p>
+
+		</div>
+		<div data-role="footer">
+			<h2 id="foot"></h2>
+		</div>
+	</div>
+
+
+
+	<!--  page one-->
+
+
+		<div data-role="page" id="page1" data-theme="a">
+			<div data-role="header" data-position="inline">
+				<h1 id="head1"></h1>
+
+			</div>
+
+			<div data-role="navbar">
+			<ul>
+				<li><a href="#page" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a></li>
+			</ul>
+			</div>
+
+			<div data-role="content" data-theme="a">
+				<section id="details1"></section><br><br>
+				<section  id="details11" style="text-align:center"></section>
+
+
+
+				<a href="https://www.chapters.indigo.ca/en-ca/" class="ui-btn ui-btn-inline ui-corner-all" target="_blank" style="float:right" >Go to Indigo</a>
+
+
+	    	<a href="#myPopup" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all">Personal Review</a>
+
+	    	<div data-role="popup" id="myPopup">
+	      <a data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+	      <p>For those PHP developers This book is really awesome!!!<br>Keep learning!!!</p>
+			</div><br><br>
+
+
+
+			<div data-role="collapsible">
+      <h1>More about PHP!</h1>
+      <p>PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used open source
+				general-purpose scripting language that is especially suited for web development and
+				can be embedded into HTML.The best things in using PHP are that it is extremely simple
+				for a newcomer, but offers many advanced features for a professional programmer. Don't
+				be afraid reading the long list of PHP's features. You can jump in, in a short time,
+				and start writing simple scripts in a few hours.
+				<a href="https://www.w3schools.com/Php/php_intro.asp" target="_blank">See more</a></p>
+    	</div>
+				<a href="#page" data-rel="back">Return to main</a>
+			</div>
+
+			<div data-role="footer">
+				<h2 id="foot1"></h2>
+			</div>
+		</div>
+
+		<!--page two-->
+
+		<div data-role="page" id="page2" data-theme="b">
+			<div data-role="header" data-position="inline">
+				<h1 id="head2"></h1>
+
+			</div>
+
+			<div data-role="navbar">
+			<ul>
+				<li><a href="#page" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a></li>
+			</ul>
+			</div>
+
+			<div data-role="content" data-theme="b">
+				<section id="details2"></section><br><br>
+				<section  id="details22" style="text-align:center"></section>
+
+				<a href="https://www.chapters.indigo.ca/en-ca/" class="ui-btn ui-btn-inline ui-corner-all" target="_blank" style="float:right">Go to Indigo</a>
+
+	    	<a href="#yourPopup" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all">Personal Review</a>
+
+	    	<div data-role="popup" id="yourPopup" class="ui-content">
+	      <a data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+	      <p>Java Android development containts all the maerial that you need!!<br> This book is really awesome!!!<br>Keep learning!!!</p>
+			</div><br><br>
+
+			<div data-role="collapsible">
+      <h1>More about Java Android!</h1>
+      <p>Java is a programming language and computing platform first released by Sun Microsystems in 1995.
+				There are lots of applications and websites that will not work unless you have Java installed, and
+ 				more are created every day. Java is fast, secure, and reliable. From laptops to datacenters, game
+				consoles to scientific supercomputers, cell phones to the Internet, Java is everywhere!
+				<a href="https://java.com/en/download/faq/whatis_java.xml" target="_blank">See more</a></p>
+    	</div>
+
+				<a href="#page" data-rel="back" style="color:black">Return to main</a>
+			</div>
+			<div data-role="footer">
+				<h2 id="foot2"></h2>
+			</div>
+		</div>
+
+			<!--page three-->
+
+		<div data-role="page" id="page3" data-theme="a">
+			<div data-role="header" data-position="inline">
+				<h1 id="head3"></h1>
+
+			</div>
+
+			<div data-role="navbar">
+			<ul>
+				<li><a href="#page" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a></li>
+			</ul>
+			</div>
+
+			<div data-role="content" data-theme="a">
+				<section id="details3"></section><br><br>
+				<section  id="details33" style="text-align:center"></section>
+
+
+				<a href="https://www.chapters.indigo.ca/en-ca/" class="ui-btn ui-btn-inline ui-corner-all" target="_blank" style="float:right">Go to Indigo</a>
+
+	    	<a href="#thisPopup" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all">Personal Review</a>
+
+	    	<div data-role="popup" id="thisPopup" class="ui-content">
+	      <a data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+	      <p>Makes you command strong with powerful shell and bash scripting!!!<br>Keep learning!!!</p>
+			</div><br><br>
+
+			<div data-role="collapsible">
+      <h1>More about Linux/Unix!</h1>
+      <p>In today’s world, Linux is more famous than Unix but Unix has its own users. While Linux is an
+				open source, free to use operating system widely used for computer hardware and software, game
+				development, tablet PCS, mainframes, Unix is a proprietary operating system commonly used in
+				internet servers, workstations and PCs by Solaris, Intel, HP etc. Unix is a family of multitasking,
+				multiuser computer operating systems that derive from the original AT&T Unix, developed in the 1970s
+			 at the Bell Labs research center by Ken Thompson, Dennis Ritchie, and others.
+			  <a href="https://www.diffen.com/difference/Linux_vs_Unix" target="_blank">See more</a></p>
+    	</div>
+
+				<a href="#page" data-rel="back">Return to main</a>
+			</div>
+			<div data-role="footer">
+				<h2 id="foot3"></h2>
+			</div>
+		</div>
+
+			<!--page four-->
+
+		<div data-role="page" id="page4" data-theme="b">
+			<div data-role="header" data-position="inline">
+				<h1 id="head4"></h1>
+
+			</div>
+
+			<div data-role="navbar">
+			<ul>
+				<li><a href="#page" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a></li>
+			</ul>
+			</div>
+
+			<div data-role="content" data-theme="a">
+				<section id="details4"></section><br><br>
+				<section  id="details44" style="text-align:center"></section>
+
+
+				<a href="https://www.chapters.indigo.ca/en-ca/" class="ui-btn ui-btn-inline ui-corner-all" target="_blank" style="float:right">Go to Indigo</a>
+
+	    	<a href="#thatPopup" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all">Personal Review</a>
+
+	    	<div data-role="popup" id="thatPopup" class="ui-content">
+	      <a  data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+	      <p>Why not design your own database? You can manipulate your data by own<br>Keep learning!!!</p>
+
+	    </div><br><br>
+
+			<div data-role="collapsible">
+      <h1>More about Database Design!</h1>
+      <p>A database is a collection of information that is organized so that it can be easily accessed, managed and updated.
+				Data is organized into rows, columns and tables, and it is indexed to make it easier to find relevant information.
+				Data gets updated, expanded and deleted as new information is added. Databases process workloads to create and update
+			 themselves, querying the data they contain and running applications against it.
+			 <a href="https://searchsqlserver.techtarget.com/definition/database" target="_blank">See more</a></p>
+    	</div>
+
+				<a href="#page" data-rel="back">Return to main</a>
+			</div>
+			<div data-role="footer">
+				<h2 id="foot4"></h2>
+			</div>
+		</div>
+</body>
+</html>
